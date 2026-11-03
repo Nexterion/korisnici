@@ -29,4 +29,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    
+    public function biljeske()
+    {
+        return $this->hasMany(Biljeska::class);
+    }
 }
