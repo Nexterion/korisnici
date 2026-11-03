@@ -53,4 +53,19 @@ class KorisnikController extends Controller
                 'email'=>'Pogrešan email ili lozinka'
             ]);
     }
+
+    public function profil()
+    {
+        return view('profil');
+    }
+
+    public function odjava(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/prijava');
+    }
+
 }
