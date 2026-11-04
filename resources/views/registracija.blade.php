@@ -20,7 +20,7 @@
         <input type="password" name="password" required>
         <br>
         <label>Ponovljena lozinka</label>
-        <input type="password" name="password_Confirmation" required>
+        <input type="password" name="password_confirmation" required>
         <br>
         <button type="submit">Registrirajte se</button>
         

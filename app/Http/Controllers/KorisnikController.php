@@ -47,7 +47,7 @@ class KorisnikController extends Controller
         if(auth::attempt($podaci))
             {
                 $request->session()->regenerate();
-                return rediract('/profil');
+                return redirect('/profil');
             }
             return back()->withErrors([
                 'email'=>'Pogrešan email ili lozinka'
@@ -61,9 +61,9 @@ class KorisnikController extends Controller
 
     public function odjava(Request $request)
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        Auth::logout();                                 //odjavljuje onog tko je prijavljen
+        $request->session()->invalidate();              //invalidate->dodatna razina zaštite koju laravel podržava, da jednu sesiju učinimo nevaljanom(poništenom)
+        $request->session()->regenerateToken();         //regenerateToken-> csrf stvara, kako bi kasnije imali novi token, da stari token ne zaostane
 
         return redirect('/prijava');
     }
